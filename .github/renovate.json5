@@ -2,17 +2,5 @@
   "extends": [
     "mergeConfidence:all-badges",
     "config:recommended"
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "fileMatch": [
-        ".*\\.tf"
-      ],
-      "matchStrings": [
-        "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*version\\s*=\\s*(?<currentValue>.*)\\s"
-      ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
-    },
   ]
 }
