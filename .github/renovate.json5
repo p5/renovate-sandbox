@@ -16,7 +16,10 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
-      // Looks through Containerfiles and updates the variables defined with ARG and ENV to the latest version
+      // Searches through Containerfiles to find ARG and ENV variables associated with git references
+      // and updates them to the latest commit digest.
+      // The regex captures the dependency name, package name, git reference, versioning strategy,
+      // and current digest from the renovate directive.
       // ref: https://docs.renovatebot.com/modules/manager/regex/#advanced-capture
       "fileMatch": [
         "Containerfile$"
@@ -28,7 +31,10 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
-      // Looks through Containerfiles and updates the variables defined with ARG and ENV to the latest version
+      // Searches through Containerfiles to find ARG and ENV variables associated with GitHub releases
+      // and updates them to the latest version.
+      // The regex captures the dependency name, package name, versioning strategy,
+      // and current version value from the renovate directive.
       // ref: https://docs.renovatebot.com/modules/manager/regex/#advanced-capture
       "fileMatch": [
         "Containerfile$"
