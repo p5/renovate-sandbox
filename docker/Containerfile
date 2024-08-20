@@ -1,7 +1,7 @@
 FROM fedora:40
 
 # renovate: datasource=git-refs depName=whisper.cpp packageName=https://github.com/ggerganov/whisper.cpp gitRef=master type=digest
-ARG WHISPER_CPP_COMMIT=22fcd5fd110ba1ff592b4e23013d870831756259
+ARG WHISPER_CPP_COMMIT=d65786ea540a5aef21f67cacfa6f134097727780
 
 # renovate: datasource=github-releases depName=ggerganov/whisper.cpp
 ARG WHISPER_CPP_VERSION=v1.6.1
