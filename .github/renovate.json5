@@ -22,7 +22,7 @@
         "Containerfile$"
       ],
       "matchStrings": [
-        "#\\s?renovate:\\s?datasource=git-refs\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:gitRef=(?<currentValue>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?type=(?<type>digest)\\s(?:ARG|ENV)\\s.*?=(?<currentDigest>[^\\s]+)"
+        "#\\s*renovate:\\s*datasource=git-refs\\sdepName=(?<depName>\\S+)\\s(?:packageName=(?<packageName>\\S+)\\s)?(?:gitRef=(?<gitRef>\\S+)\\s)?(?:versioning=(?<versioning>\\S+)\\s)?(?:extractVersion=\\S+\\s)?type=(?<type>digest)\\s(?:ARG|ENV)\\s.*?=(?<currentDigest>\\S+)"
       ],
       "datasourceTemplate": "git-refs",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
@@ -34,7 +34,7 @@
         "Containerfile$"
       ],
       "matchStrings": [
-        "#\\s?renovate:\\s?datasource=github-releases\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>[^\\s]+)"
+        "#\\s*renovate:\\s*datasource=github-releases\\sdepName=(?<depName>\\S+)\\s(?:packageName=(?<packageName>\\S+)\\s)?(?:versioning=(?<versioning>\\S+)\\s)?(?:extractVersion=\\S+\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>\\S+)"
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
