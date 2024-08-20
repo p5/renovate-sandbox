@@ -22,7 +22,7 @@
         "Containerfile$"
       ],
       "matchStrings": [
-        "#\\s?renovate:\\s?datasource=git-refs\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:gitRef=(?<gitRef>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?type=(?<type>digest)\\s(?:ARG|ENV)\\s.*?=(?<currentDigest>[^\\s]+)"
+        "#\\s?renovate:\\s?datasource=git-refs\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:gitRef=(?<currentValue>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?type=(?<type>digest)\\s(?:ARG|ENV)\\s.*?=(?<currentDigest>[^\\s]+)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
