@@ -31,7 +31,7 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
-      // Searches through Containerfiles to find ARG and ENV variables associated with GitHub releases
+      // Searches through Containerfiles to find ARG and ENV variables associated with various datasources
       // and updates them to the latest version.
       // The regex captures the dependency name, package name, versioning strategy,
       // and current version value from the renovate directive.
@@ -40,9 +40,8 @@
         "Containerfile$"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=github-releases\\sdepName=(?<depName>\\S+)\\s(?:packageName=(?<packageName>\\S+)\\s)?(?:versioning=(?<versioning>\\S+)\\s)?(?:extractVersion=\\S+\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>\\S+)"
+        "#\\s*renovate:\\s*datasource=(?<datasource>.*?)\\sdepName=(?<depName>\\S+)\\s(?:packageName=(?<packageName>\\S+)\\s)?(?:versioning=(?<versioning>\\S+)\\s)?(?:extractVersion=\\S+\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>\\S+)"
       ],
-      "datasourceTemplate": "github-releases",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
