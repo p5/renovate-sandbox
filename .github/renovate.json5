@@ -25,6 +25,17 @@
         "#\\s?renovate:\\s?datasource=(?<datasource>git-refs)\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>[^\\s]+)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      // Looks through Containerfiles and updates the variables defined with ARG and ENV to the latest version
+      // ref: https://docs.renovatebot.com/modules/manager/regex/#advanced-capture
+      "fileMatch": [
+        "Containerfile$"
+      ],
+      "matchStrings": [
+        "#\\s?renovate:\\s?datasource=(?<datasource>git-refs)\\sdepName=(?<depName>.*?)\\s(?:packageName=(?<packageName>.*?)\\s)?(?:versioning=(?<versioning>.*?)\\s)?(?:extractVersion=.*?\\s)?type=(?<type>digest)\\s(?:ARG|ENV)\\s.*?=(?<currentValue>[^\\s]+)"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     }
   ]
 }
