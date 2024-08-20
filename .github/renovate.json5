@@ -16,7 +16,7 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
-      // Looks through Containerfiles and updates the *_VERSION variables defined with ARG and ENV to the latest version
+      // Looks through Containerfiles and updates the variables defined with ARG and ENV to the latest version
       // ref: https://docs.renovatebot.com/modules/manager/regex/#advanced-capture
       "fileMatch": [
         "Containerfile$"
