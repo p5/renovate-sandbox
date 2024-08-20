@@ -1,6 +1,6 @@
 FROM fedora:40
 
-# renovate: datasource=git-refs depName=whisper.cpp packageName=https://github.com/ggerganov/whisper.cpp
+# renovate: datasource=git-refs depName=whisper.cpp packageName=https://github.com/ggerganov/whisper.cpp versioning=git
 ARG WHISPER_CPP_COMMIT=22fcd5fd110ba1ff592b4e23013d870831756259
 
 RUN git clone https://github.com/ggerganov/whisper.cpp.git && \
