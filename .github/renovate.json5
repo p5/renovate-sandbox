@@ -65,7 +65,7 @@
         "image-versions.yaml"
       ],
       "matchStrings": [
-        "images.($name := name; $package := image; versions.{ \"depName\": $name, \"packageName\": $package, \"currentValue\": $string(version), \"currentDigest\": digest })"
+        "images.($name := name; $package := image; versions.{ \"depName\": $name, \"packageName\": $package, \"currentValue\": $string(version) })"
       ],
       "datasourceTemplate": "docker"
     }
