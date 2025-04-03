@@ -43,6 +43,23 @@
         "#\\s*renovate:\\s*datasource=(?<datasource>.*?)\\sdepName=(?<depName>\\S+)\\s(?:packageName=(?<packageName>\\S+)\\s)?(?:versioning=(?<versioning>\\S+)\\s)?(?:extractVersion=\\S+\\s)?(?:ARG|ENV)\\s.*?=(?<currentValue>\\S+)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "jsonata",
+      "fileFormat": "toml",
+      "fileMatch": [
+        // Match all files with a .image extension
+        // This needs to be regex for Renovate to work
+        // Look in all directories and subdirectories
+        ".*\\.image$"
+        // Match all files with any extension
+        // "./files/usr/share/containers/systemd/caddy.image"
+      ],
+      "matchStrings": [
+        // "$match(Image.Image, /(?<depName>[^:]+):(?<currentValue>.+)/, {\"depName\": depName, \"currentValue\": currentValue, \"datasource\": \"docker\"})"
+        "Image.{'depName': Image, 'currentValue': Image, 'datasource': 'docker'}"
+      ],
+      "datasourceTemplate": "docker"
     }
   ],
   "packageRules": [
@@ -55,19 +72,6 @@
         "major"
       ],
       "enabled": false
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "jsonata",
-      "fileFormat": "yaml",
-      "fileMatch": [
-        "image-versions.yaml"
-      ],
-      "matchStrings": [
-        "images.($name := name; $package := image; versions.{ \"depName\": $name, \"packageName\": $package, \"currentValue\": $string(version) })"
-      ],
-      "datasourceTemplate": "docker"
     }
   ]
 }
