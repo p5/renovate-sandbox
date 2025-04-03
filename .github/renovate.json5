@@ -55,17 +55,5 @@
       ],
       "datasourceTemplate": "docker"
     }
-  ],
-  "packageRules": [
-    {
-      // Disable major version updates for Docker images
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "enabled": false
-    }
   ]
 }
