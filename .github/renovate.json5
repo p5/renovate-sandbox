@@ -48,16 +48,10 @@
       "customType": "jsonata",
       "fileFormat": "toml",
       "fileMatch": [
-        // Match all files with a .image extension
-        // This needs to be regex for Renovate to work
-        // Look in all directories and subdirectories
         ".*\\.image$"
-        // Match all files with any extension
-        // "./files/usr/share/containers/systemd/caddy.image"
       ],
       "matchStrings": [
-        // "$match(Image.Image, /(?<depName>[^:]+):(?<currentValue>.+)/, {\"depName\": depName, \"currentValue\": currentValue, \"datasource\": \"docker\"})"
-        "Image.{'depName': Image, 'currentValue': Image, 'datasource': 'docker'}"
+        "Image.{'depName': Image, 'currentValue': Image }"
       ],
       "datasourceTemplate": "docker"
     }
